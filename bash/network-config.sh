@@ -37,9 +37,11 @@ cat <<EOF
 Hostname        : $(hostname)
 ipaddress       : $(ip a s $(ip a |awk '/: e/{gsub(/:/,"");print $2}')|awk '/inet /{gsub(/\/.*/,"");print $2}')
 LAN Hostname    : $(getent hosts $ipaddress | awk '{print $2}')
-externalIP      : $(curl -s icanhazip.com)
-externalName    : $(getent hosts $externalIP | awk '{print $2}')
+external_address: $(curl -s icanhazip.com)
+externalName    : $(getent hosts $external_address | awk '{print $2}')
+
 Router 	        : $(ip route | grep default | awk '{print $3}')
 Router Name     : $(getent hosts `ip route|grep default |awk '{print $3}'|sed 's,/.*,,'` | awk '{print $2}')
+
 EOF
 

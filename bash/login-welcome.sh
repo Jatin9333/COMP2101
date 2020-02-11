@@ -33,49 +33,59 @@ currenttime=$(date +%I:%M\ %p)
 ###############
 if [ "$weekday" = "Tuesday" ]
 then 
-cat <<EOF 
+display=$(cat <<EOF 
 Welcome to planet $hostname, $title $USER
 It is $currenttime on $weekday                
 EOF
+
+ )
 elif [ "$weekday" = "Monday" ]
 then 
-cat <<EOF 
+display=$(cat <<EOF 
 Welcome to planet $hostname, $title2 $USER
 It is $currenttime on $weekday   
 EOF
+
+)
 elif [ "$weekday" = "Wednesday" ]
 then 
-cat <<EOF 
+display=$(cat <<EOF 
 Welcome to planet $hostname, $title3  $USER
 It is $currenttime on $weekday   
 EOF
+
+)
 elif [ "$weekday" = "Thursday" ]
 then 
  
-cat <<EOF 
+display=$(cat <<EOF 
 Welcome to planet $hostname, $title4  $USER
 It is $currenttime on $weekday   
 EOF
-
+)
 elif [ "$weekday" = "Friday" ]
 then 
-cat <<EOF 
+display=$(cat <<EOF 
 Welcome to planet $hostname, $title5  $USER
 It is $currenttime on $weekday   
 EOF
-
+)
 elif [ "$weekday" = "Saturday" ]
 then 
-cat <<EOF 
+display=$(cat <<EOF 
 Welcome to planet $hostname, $title6  $USER
 It is $currenttime on $weekday   
 EOF
-
+)
 elif [ "$weekday" = "Sunday" ]
 then 
-cat <<EOF 
+display=$(cat <<EOF 
 Welcome to planet $hostname, $title7  $USER
 It is $currenttime on $weekday   
 EOF
-
+)
 fi
+
+cat <<EOF
+$(cowsay $display)
+EOF
