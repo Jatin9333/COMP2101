@@ -3,11 +3,6 @@
 
 # create an empty array to put the command line arguments into
 myargs=()
-h1="-h is for help."
-v1="-v is for varbos."
-d1="-d is for debug."
-verbose=0
-
 # loop through the command line arguments
 while [ $# -gt 0 ]; do
   # tell the user how many things are left on the command line
@@ -20,7 +15,7 @@ while [ $# -gt 0 ]; do
   		-h )
 			echo "You added \"-h\" for help."
 			echo 'Processing -h'
-			echo "$h1"	
+			echo "-h is to display help"	
 			;;
 		-v )
 			echo 'You added "-v" for varbose.'
@@ -71,7 +66,9 @@ echo "Done"
 #         Tell the user if vebose mode is on
 #         Tell the user if debug mode is on and if it is, what number it is set to
 #         Print out the myargs array with a label
-if [ $verbose -eq 1 ]; then
+echo "Myarg() array contents ${myargs[@]}"
+
+if [ "$1"=\"-v\" ]; then
   echo "Varbose mode is turend On."
 else
   echo "Varbose mode is not On."
@@ -81,5 +78,5 @@ if [ $debug -eq 1 ]; then
 else
   echo "Debug mode is Off without any level."
 fi
-#printing with a label
-echo "Myarg() array contents ${myargs[@]}"
+
+
