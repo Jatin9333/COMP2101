@@ -71,3 +71,15 @@ echo "Done"
 #         Tell the user if vebose mode is on
 #         Tell the user if debug mode is on and if it is, what number it is set to
 #         Print out the myargs array with a label
+if [ $verbose -eq 1 ]; then
+  echo "Varbose mode is turend On."
+else
+  echo "Varbose mode is not On."
+fi
+if [ $debug -eq 1 ]; then
+  echo "Debug mode is On with level $level."
+else
+  echo "Debug mode is Off without any level."
+fi
+#printing with a label
+echo "Myarg() array contents ${myargs[@]}"
